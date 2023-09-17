@@ -5,8 +5,6 @@ import VideoComponent from "./VideoComponent";
 import AddVideo from "./AddVideo";
 
 function App() {
-  // const [videos, setVideos] = useState([]);
-
   const [videos, setVideos] = useState([]);
   const [newVideoUrl, setNewVideoUrl] = useState("");
   const [newVideoTitle, setNewVideoTitle] = useState("");
