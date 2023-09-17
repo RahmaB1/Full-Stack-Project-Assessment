@@ -13,33 +13,36 @@ const VideoComponent = ({ video, onRemove }) => {
 
   return (
     <>
-      <h1 className="text-center">{video.title}</h1>
+      <div className="video-card">
+        <h4 className="text-center">{video.title}</h4>
+        <div className="video-player-container">
+          <iframe
+            width="560"
+            height="315"
+            src={"https://www.youtube.com/embed/${video.id}"}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
 
-      <iframe
-        width="560"
-        height="315"
-        src={"https://www.youtube.com/embed/${video.id}"}
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
+        <p>Votes {votes}</p>
 
-      <p>Votes {votes}</p>
+        <button className="btn btn-outline-dark" onClick={handleUpVotes}>
+          Like
+        </button>
+        <button className="btn btn-outline-dark" onClick={handleDownVotes}>
+          Dislike
+        </button>
 
-      <button className="btn btn-outline-dark" onClick={handleUpVotes}>
-        Like
-      </button>
-      <button className="btn btn-outline-dark" onClick={handleDownVotes}>
-        Dislike
-      </button>
-
-      <button
-        className="btn btn-outline-danger"
-        onClick={() => onRemove(video.id)}
-      >
-        Remove Video
-      </button>
+        <button
+          className="btn btn-outline-danger"
+          onClick={() => onRemove(video.id)}
+        >
+          Remove Video
+        </button>
+      </div>
     </>
   );
 };

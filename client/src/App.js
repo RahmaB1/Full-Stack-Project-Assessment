@@ -32,22 +32,26 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        placeholder="video title"
-        value={newVideoTitle}
-        onChange={(e) => setNewVideoTitle(e.target.value)}
-      />
+      <h1>My Video Library</h1>
+      <div className="add-video">
+        <input
+          type="text"
+          placeholder="video title"
+          value={newVideoTitle}
+          onChange={(e) => setNewVideoTitle(e.target.value)}
+        />
 
-      <input
-        type="text"
-        placeholder="video url"
-        value={newVideoUrl}
-        onChange={(e) => setNewVideoUrl(e.target.value)}
-      />
+        <input
+          type="text"
+          placeholder="video url"
+          value={newVideoUrl}
+          onChange={(e) => setNewVideoUrl(e.target.value)}
+        />
 
-      <button onClick={handleAddVideo}>Add Video</button>
-
+        <button className="btn btn-outline-dark" onClick={handleAddVideo}>
+          Add Video
+        </button>
+      </div>
       {videos.map((video) => (
         <VideoComponent key={video.id} video={video} onRemove={handleRemove} />
       ))}
